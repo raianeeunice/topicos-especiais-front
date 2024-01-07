@@ -1,0 +1,65 @@
+:host {
+  .main-card {
+    display: flex;
+    padding: 0 10px;
+    height: max(600px, 100vh);
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap-reverse;
+    background-color: var(--mainYellow);
+
+    .content-text {
+      color: var(--mainBlack);
+
+      .error {
+        font-weight: 700;
+        font-size: 15px;
+      }
+
+      .title {
+        font-weight: 700;
+        font-size: 80px;
+      }
+
+      .reason {
+        width: 310px;
+        font-weight: 500;
+        font-size: 20px;
+      }
+
+      .button-not-found {
+        width: 110px;
+        height: 42px;
+        margin-top: 30px;
+        background-color: var(--mainBlack);
+        border: none;
+        color: var(--mainWhite);
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);
+        border-radius: 35px;
+        cursor: pointer;
+      }
+    }
+
+    img {
+      width: 300px;
+      height: 350px;
+      object-fit: cover;
+      animation: float 3s ease-out infinite;
+    }
+  }
+
+  @keyframes float {
+    50% {
+      transform: translate(0, 60px);
+    }
+  }
+
+  @media (max-width: 741px) {
+    .content-text {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  }
+}

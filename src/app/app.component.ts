@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
-
+import { PrimeNGConfig } from 'primeng/api';
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  template: '<router-outlet></router-outlet>',
 })
 export class AppComponent {
-  title = 'topicos-especiais-2';
+  constructor(private primengConfig: PrimeNGConfig) {}
+
+  ngOnInit() {
+    this.primengConfig.ripple = true;
+  }
 }
