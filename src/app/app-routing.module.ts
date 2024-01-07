@@ -11,8 +11,8 @@ const routes: Routes = [
   {
     path: 'accounting-entry',
     loadChildren: () =>
-      import('./modules/accounting-entry/accounting-entry.module').then(
-        (p) => p.AccountingEntryModule
+      import('./modules/lancamentos/lancamentos.module').then(
+        (p) => p.LancamentosModule
       ),
   },
   { path: '404', component: NotFoundComponent },
