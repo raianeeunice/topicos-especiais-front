@@ -90,7 +90,7 @@ export class LancamentoFormBuilder {
     const { lancamentoInvalido, dataLancamento } = form.getRawValue();
     let date: string = '';
 
-    if (edit) {
+    if (!edit) {
       date = formatDate(dataLancamento);
     } else {
       date = dataLancamento;

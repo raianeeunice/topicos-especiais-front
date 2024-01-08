@@ -37,7 +37,6 @@ export class ListComponent implements OnInit {
       acceptButtonStyleClass: 'p-button-success',
       rejectButtonStyleClass: 'p-button-danger',
       accept: () => {
-        console.log('accept');
         this.lancamentoService.delete(lancamento.id).subscribe({
           next: () => this.handleSuccess(),
           error: (err) => this.handleError(err),

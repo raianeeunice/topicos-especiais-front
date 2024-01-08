@@ -1,16 +1,5 @@
-<section>
-  {{ tabela }}
-  <div *ngIf="form" [formGroup]="form" class="secundario-grid">
-    <!-- <div class="secundario-field">
-      <label>Tabela Secundaria</label>
-      <p-dropdown
-        formControlName="tabela"
-        [options]="selectionOptionsSecundario"
-        optionLabel="label"
-        optionValue="value"
-      ></p-dropdown>
-    </div> -->
-
+<section class="card">
+  <div *ngIf="form" [formGroup]="form" class="secundario-form">
     <div class="secundario-field" *ngIf="temCodigo">
       <label>Código</label>
       <input
@@ -61,20 +50,22 @@
       >
     </div>
   </div>
-  <button
-    pButton
-    type="button"
-    icon="pi pi-times"
-    label="Voltar"
-    class="p-button-danger"
-    (click)="handleBack()"
-  ></button>
-  <button
-    pButton
-    type="button"
-    icon="pi pi-save"
-    label="Salvar"
-    class="p-button-success p-mr-2"
-    (click)="onSubmit()"
-  ></button>
+
+  <div class="actions">
+    <button
+      pButton
+      type="button"
+      label="Voltar"
+      class="p-button-secondary"
+      (click)="handleBack()"
+    ></button>
+    <button
+      pButton
+      type="button"
+      icon="pi pi-save"
+      label="Salvar"
+      class="p-button-success p-mr-2"
+      (click)="onSubmit()"
+    ></button>
+  </div>
 </section>

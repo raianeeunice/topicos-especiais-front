@@ -105,20 +105,18 @@
 
     <div class="lancamento-field">
       <label>GED</label>
-      <p-inputNumber
-        inputId="integeronly"
-        [min]="0"
-        [max]="maxYear"
-        [useGrouping]="false"
+
+      <p-inputMask
         formControlName="ged"
+        mask="99.99.9999.9999999/9999-99"
+        [maxlength]="26"
         [ngClass]="
           form.controls['ged'].hasError('required') &&
           form.controls['ged'].touched
             ? 'ng-invalid ng-dirty'
             : ''
         "
-      >
-      </p-inputNumber>
+      ></p-inputMask>
 
       <small
         *ngIf="

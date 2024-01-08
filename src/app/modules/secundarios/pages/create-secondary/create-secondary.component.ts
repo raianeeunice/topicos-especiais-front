@@ -11,6 +11,7 @@ import {
 import { HttpErrorResponse } from '@angular/common/http';
 import { MessageService } from 'primeng/api';
 import { ActivatedRoute } from '@angular/router';
+import { formatTabelaNome } from '../../utils/option-table.selection';
 
 @Component({
   selector: 'app-create-secondary',
@@ -20,6 +21,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class CreateSecondaryComponent {
   public formGroup: FormGroup | null = null;
+  public nomeTabela: string = '';
 
   constructor(
     private formBuilder: SecundarioFormBuilder,
@@ -29,6 +31,7 @@ export class CreateSecondaryComponent {
   ) {
     this.route.params.subscribe((params) => {
       const tabela = params['tabela'] as TabelaSecundaria;
+      this.nomeTabela = formatTabelaNome(tabela);
       const tabelaTemCodigo = temCodigo[tabela];
       this.formGroup = this.formBuilder.build(tabelaTemCodigo);
     });

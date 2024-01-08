@@ -1,19 +1,13 @@
 :host {
-  .secundario-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    grid-gap: 16px;
+  padding: 1.5rem 6rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 
-    .secundario-field {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      width: 100%;
-    }
-
-    .form-invalid {
-      font-size: small;
-      color: red;
-    }
+  .title {
+    font-size: 1.5rem;
+    color: #6153be;
+    margin-bottom: 1rem;
   }
 }

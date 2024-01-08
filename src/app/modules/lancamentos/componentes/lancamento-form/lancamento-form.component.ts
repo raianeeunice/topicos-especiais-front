@@ -107,21 +107,18 @@ export class LancamentoFormComponent implements OnInit {
   }
 
   public handleBack() {
-    this.router.navigateByUrl('/lancamento');
-
-    // this.confirmationService.confirm({
-    //   message: `Você tem certeza que deseja deletar o lançamento:
-    //     ""?`,
-    //   header: 'Confirmar exclusão',
-    //   icon: 'pi pi-exclamation-triangle',
-    //   acceptLabel: 'Sim',
-    //   rejectLabel: 'Não',
-    //   acceptButtonStyleClass: 'p-button-success',
-    //   rejectButtonStyleClass: 'p-button-danger',
-    //   accept: () => {
-    //     console.log('accept');
-    //   },
-    // });
+    this.confirmationService.confirm({
+      message: `Você tem certeza que deseja retornar a listagem ?`,
+      header: 'Retornar a listagem',
+      icon: 'pi pi-exclamation-triangle',
+      acceptLabel: 'Sim',
+      rejectLabel: 'Não',
+      acceptButtonStyleClass: 'p-button-success',
+      rejectButtonStyleClass: 'p-button-danger',
+      accept: () => {
+        this.router.navigateByUrl('/lancamento');
+      },
+    });
   }
 
   private highlightInvalidFields(form: FormGroup) {

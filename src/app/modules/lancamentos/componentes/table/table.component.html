@@ -4,27 +4,41 @@
   <div class="header">
     <h5 class="title">Lançamentos</h5>
 
-    <button
-      pButton
-      type="button"
-      icon="pi pi-plus"
-      label="Novo"
-      class="p-button-success p-mr-2"
-      (click)="addLancamento()"
-    ></button>
+    <div class="actions">
+      <button
+        pButton
+        type="button"
+        label="Tabelas Secundárias"
+        class="p-button-help p-mr-2"
+        (click)="addTabelaSecudanria()"
+      ></button>
+
+      <button
+        pButton
+        type="button"
+        label="Novo lançamento"
+        class="p-button-success p-mr-2"
+        (click)="addLancamento()"
+      ></button>
+    </div>
   </div>
 
   <p-table
     [value]="lancamentos"
     styleClass="p-datatable-gridlines"
     [tableStyle]="{ 'min-width': '60rem' }"
+    [paginator]="true"
+    [rows]="5"
+    [showCurrentPageReport]="true"
+    currentPageReportTemplate="Mostrando {first} - {last} de {totalRecords} itens"
+    [rowsPerPageOptions]="[5, 10, 50]"
   >
     <ng-template pTemplate="header">
       <tr>
         <th pSortableColumn="contratado" style="width: 20%">
           Contratado <p-sortIcon field="contratado"></p-sortIcon>
         </th>
-        <th pSortableColumn="descricao" style="width: 20%">
+        <th pSortableColumn="descricao" style="width: 30%">
           Descrição <p-sortIcon field="descricao"></p-sortIcon>
         </th>
         <th pSortableColumn="anoOrcamento" style="width: 20%">
@@ -33,7 +47,7 @@
         <th pSortableColumn="dataCadastro" style="width: 20%">
           Data cadastro <p-sortIcon field="dataCadastro"></p-sortIcon>
         </th>
-        <th pSortableColumn="valor" style="width: 20%">
+        <th pSortableColumn="valor" style="width: 10%">
           Valor <p-sortIcon field="valor"></p-sortIcon>
         </th>
         <th pSortableColumn="lancamentoInvalido" style="width: 20%">
@@ -46,7 +60,7 @@
       <tr>
         <td>{{ lancamento.contratado }}</td>
         <td>{{ lancamento.descricao }}</td>
-        <td>{{ lancamento.anoOrcamento }}</td>
+        <td style="text-align:center">{{ lancamento.anoOrcamento }}</td>
         <td>{{ lancamento.dataCadastro }}</td>
         <td>{{ lancamento.valor | currency : "BRL" }}</td>
         <td>

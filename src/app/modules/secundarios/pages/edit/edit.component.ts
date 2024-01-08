@@ -10,6 +10,7 @@ import {
 } from 'src/app/core/models/secundario-form.model';
 import { SecondaryUtilsService } from 'src/app/core/services/utils/secondary.utils.service';
 import { SecundarioFormBuilder } from '../../components/secundario-form/secundario-form.form-builder';
+import { formatTabelaNome } from '../../utils/option-table.selection';
 
 @Component({
   selector: 'app-edit',
@@ -19,28 +20,30 @@ import { SecundarioFormBuilder } from '../../components/secundario-form/secundar
 })
 export class EditComponent implements OnInit {
   public formGroup: FormGroup | null = null;
-  public id: number = 0;
+  public id: string = '';
   public tabela = 'acao' as TabelaSecundaria;
+  public nomeTabela: string = '';
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private secundarioService: SecondaryUtilsService,
     private formBuilder: SecundarioFormBuilder,
     private messageService: MessageService,
-    private router: Router
-  ) {
+  ) {}
+
+  ngOnInit(): void {
     this.activatedRoute.params.subscribe((params) => {
       this.tabela = params['tabela'];
       this.id = params['id'];
+      this.nomeTabela = formatTabelaNome(this.tabela);
+
       if (Number(this.id) > 0) {
         this.buildForm(this.id);
       }
     });
   }
 
-  ngOnInit(): void {}
-
-  private buildForm(id: number) {
+  private buildForm(id: string) {
     this.secundarioService.getItem(this.tabela, id).subscribe((res) => {
       this.id = res.id;
       const tabelaTemCodigo = temCodigo[this.tabela];

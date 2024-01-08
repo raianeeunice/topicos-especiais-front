@@ -19,9 +19,6 @@ export class SecundarioFormBuilder {
     }
 
     return this.formBuilder.group({
-      // tabela: this.formBuilder.control(model?.tabela || null, [
-      //   Validators.required,
-      // ]),
       nome: this.formBuilder.control(model?.nome || null, [
         Validators.required,
       ]),

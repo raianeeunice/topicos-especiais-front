@@ -23,6 +23,7 @@ import { TableModule } from 'primeng/table';
 import { ToastModule } from 'primeng/toast';
 import { CardsModule } from 'src/shared/components/cards/cards.module';
 import { LancamentoFormBuilder } from './componentes/lancamento-form/lancamento.form-builder';
+import {InputMaskModule} from 'primeng/inputmask';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { LancamentoFormBuilder } from './componentes/lancamento-form/lancamento.
     InputTextareaModule,
     DropdownModule,
     FormsModule,
-    CardsModule
+    CardsModule,
+    InputMaskModule
   ],
   providers: [
     LancamentoService,

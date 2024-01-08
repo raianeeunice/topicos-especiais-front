@@ -1,5 +1,5 @@
 export interface ISecundarioForm {
-  id: number;
+  id: string;
   nome: string;
   codigo?: number;
   dataCadastro: string;

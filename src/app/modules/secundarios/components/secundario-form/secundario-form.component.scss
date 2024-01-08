@@ -1,19 +1,37 @@
 :host {
-  .secundario-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    grid-gap: 16px;
+  .card {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
 
-    .secundario-field {
+    .secundario-form {
       display: flex;
-      flex-direction: column;
-      gap: 6px;
-      width: 100%;
+      align-items: center;
+      justify-content: space-between;
+      gap: 50px;
+
+      .secundario-field {
+        display: flex;
+        flex-direction: column;
+        width: 70%;
+
+        label {
+          font-weight: 500;
+          color: #495057;
+        }
+      }
     }
 
-    .form-invalid {
-      font-size: small;
-      color: red;
+    .actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 16px;
+      margin-top: 24px;
+
+      .secundario-button {
+        height: 45px;
+      }
     }
   }
 }

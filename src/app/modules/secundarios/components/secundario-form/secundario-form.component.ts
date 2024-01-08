@@ -8,7 +8,10 @@ import {
 } from 'src/app/core/models/secundario-form.model';
 import { SecondaryUtilsService } from 'src/app/core/services/utils/secondary.utils.service';
 import { SecundarioFormBuilder } from './secundario-form.form-builder';
-import { selectionOptionsSecundario } from '../../utils/option-table.selection';
+import {
+  formatTabelaNome,
+  selectionOptionsSecundario,
+} from '../../utils/option-table.selection';
 
 @Component({
   selector: 'app-secundario-form',
@@ -29,15 +32,15 @@ export class SecundarioFormComponent implements OnInit {
   public tabela = 'acao' as TabelaSecundaria;
   public temCodigo: boolean = true;
 
-  constructor(private route: ActivatedRoute, private router: Router) {
+  constructor(private route: ActivatedRoute, private router: Router) {}
+
+  ngOnInit(): void {
     this.route.params.subscribe((params) => {
       this.tabela = params['tabela'];
       const tabelaTemCodigo = temCodigo[this.tabela];
       this.temCodigo = tabelaTemCodigo;
     });
   }
-
-  ngOnInit(): void {}
 
   public onSubmit() {
     if (this.form?.invalid) {

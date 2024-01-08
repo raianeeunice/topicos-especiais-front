@@ -1,31 +1,36 @@
 <p-toast></p-toast>
 
-<section>
-  <div class="card">
-    <div *ngIf="formGroup" [formGroup]="formGroup" class="secundario-grid">
-      <div class="secundario-field">
-        <label>Tabela Secundaria</label>
-        <p-dropdown
-          formControlName="tabela"
-          [options]="selectionOptionsSecundario"
-          optionLabel="label"
-          optionValue="value"
-        ></p-dropdown>
-      </div>
-      <button
-        pButton
-        type="button"
-        label="Listar Itens"
-        class="p-button-success p-mr-2"
-        (click)="getAllItens()"
-      ></button>
-    </div>
-  </div>
+<section class="main-header">
+  <i class="pi pi-arrow-left" style="cursor: pointer;" (click)="handleBack()"></i>
+  <h2 class="main-title">Tabelas Secundárias</h2>
+</section>
 
+<section class="card">
+  <div *ngIf="formGroup" [formGroup]="formGroup" class="secundario-form">
+    <div class="secundario-field">
+      <label>Nome da tabela</label>
+      <p-dropdown
+        formControlName="tabela"
+        [options]="selectionOptionsSecundario"
+        optionLabel="label"
+        optionValue="value"
+      ></p-dropdown>
+    </div>
+    <button
+      pButton
+      type="button"
+      label="Listar Itens"
+      class="p-button-success p-mr-2 secundario-button"
+      (click)="getAllItems()"
+    ></button>
+  </div>
+</section>
+
+<section>
   <!-- Mostra todos os itens após pegá-los -->
   <div class="card" *ngIf="items && items.length > 0">
     <div class="header">
-      <h5 class="title">Tabela de Itens</h5>
+      <h5 class="title">Itens</h5>
 
       <button
         pButton
@@ -44,20 +49,22 @@
     >
       <ng-template pTemplate="header">
         <tr>
-          <th pSortableColumn="nome" style="width: 20%">
+          <th pSortableColumn="nome" style="width: 60%">
             Nome <p-sortIcon field="nome"></p-sortIcon>
           </th>
           <th pSortableColumn="codigo" style="width: 20%" *ngIf="temCodigo">
             Codigo <p-sortIcon field="codigo"></p-sortIcon>
           </th>
-          <th style="min-width: 10rem"></th>
+          <th style="width: 20%"></th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-item>
         <tr>
           <td>{{ item.nome }}</td>
-          <td *ngIf="temCodigo">{{ item.codigo }}</td>
-          <td>
+          <td *ngIf="temCodigo" style="text-align: center">
+            {{ item.codigo }}
+          </td>
+          <td style="text-align: center">
             <button
               pButton
               icon="pi pi-pencil"
@@ -69,7 +76,7 @@
               pRipple
               icon="pi pi-trash"
               class="p-button-rounded p-button-text p-button-danger"
-              (click)="handleDelete(item.id)"
+              (click)="handleDelete(item)"
             ></button>
           </td>
         </tr>
@@ -77,3 +84,5 @@
     </p-table>
   </div>
 </section>
+
+<p-confirmDialog [style]="{ width: '450px' }"></p-confirmDialog>

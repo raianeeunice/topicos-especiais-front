@@ -17,7 +17,7 @@ import { ToastModule } from 'primeng/toast';
 import { ListComponent } from './pages/list/list.component';
 import { SecundarioFormComponent } from './components/secundario-form/secundario-form.component';
 import { EditComponent } from './pages/edit/edit.component';
-import { MessageService } from 'primeng/api';
+import { ConfirmationService, MessageService } from 'primeng/api';
 
 @NgModule({
   declarations: [
@@ -43,6 +43,6 @@ import { MessageService } from 'primeng/api';
     DropdownModule,
     FormsModule,
   ],
-  providers: [MessageService],
+  providers: [MessageService, ConfirmationService],
 })
 export class SecundariosModule {}

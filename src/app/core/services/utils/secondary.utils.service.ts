@@ -23,14 +23,14 @@ export class SecondaryUtilsService {
     return this.httpClient.get<ISecundarioForm[]>(url);
   }
 
-  public getItem(tabela: TabelaSecundaria, id: number) {
+  public getItem(tabela: TabelaSecundaria, id: string) {
     const url = `${this.baseUrl}/${tabela}/${id}`;
     return this.httpClient.get<ISecundarioForm>(url);
   }
 
   public editarItem(
     tabela: TabelaSecundaria,
-    id: number,
+    id: string,
     item: ISecundarioDTO
   ) {
     const url = `${this.baseUrl}/${tabela}/${id}`;
@@ -39,7 +39,6 @@ export class SecondaryUtilsService {
 
   public deletarItem(tabela: TabelaSecundaria, id: string) {
     const url = `${this.baseUrl}/${tabela}/${id}`;
-    console.log(url);
     return this.httpClient.delete(url);
   }
 }

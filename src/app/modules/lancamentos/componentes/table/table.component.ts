@@ -20,4 +20,8 @@ export class LancamentoTableComponent implements OnInit {
   public addLancamento() {
     this.router.navigate(['/lancamento/cadastro']);
   }
+
+  public addTabelaSecudanria() {
+    this.router.navigate(['/secundario']);
+  }
 }

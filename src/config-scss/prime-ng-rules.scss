@@ -1,4 +1,4 @@
-.p-inputnumber, .p-dropdown, .p-calendar  {
+.p-inputnumber, .p-dropdown, .p-calendar, .p-inputtext  {
   width: 100%;
 }
 
@@ -19,4 +19,14 @@ span > .p-inputtext:enabled:hover, .p-dropdown:not(.p-disable):hover{
 
 .p-overlay {
  max-width: 100%;
+}
+
+input:enabled:focus {
+  border-color: #6153be !important;
+  box-shadow: 0 0 0 0.02rem #6153be !important;
+}
+
+input:enabled:hover {
+  border-color: #6153be !important;
+  box-shadow: 0 0 0 0.02rem #6153be !important;
 }

@@ -1,0 +1,13 @@
+:host {
+    padding: 1.5rem 6rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  
+    .title {
+      font-size: 1.5rem;
+      color: #6153be;
+      margin-bottom: 1rem;
+    }
+  }
