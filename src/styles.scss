@@ -1,3 +1,4 @@
 /* You can add global styles to this file, and also import other style files */
-@use './config-scss/variables.scss';
-@import './config-scss/global-rules.scss';
+@use "./config-scss/variables.scss";
+@import "./config-scss/global-rules.scss";
+@import "./config-scss/prime-ng-rules.scss";

@@ -9,61 +9,73 @@ export class LancamentoFormBuilder {
   build(model?: ILancamentoForm): FormGroup {
     return this.formBuilder.group({
       lancamentoInvalido: this.formBuilder.control(
-        model?.lancamentoInvalido || '',
+        model?.lancamentoInvalido || null,
         [Validators.required]
       ),
       numeroLancamento: this.formBuilder.control(
         model?.numeroLancamento || null,
         [Validators.required]
       ),
-      idTipoLancamento: this.formBuilder.control(model?.idTipoLancamento || ''),
-      dataLancamento: this.formBuilder.control(model?.dataLancamento || 1, [
-        Validators.required,
-      ]),
-      idLancamentoPai: this.formBuilder.control(model?.idLancamentoPai || '', [
-        Validators.required,
-      ]),
-      idUnidade: this.formBuilder.control(model?.idUnidade || null),
-      descricao: this.formBuilder.control(model?.descricao || ''),
-      idUnidadeOrcamentaria: this.formBuilder.control(
-        model?.idUnidadeOrcamentaria || ''
+      idTipoLancamento: this.formBuilder.control(
+        model?.idTipoLancamento || null,
+        [Validators.required]
       ),
-      idPrograma: this.formBuilder.control(model?.idPrograma || null),
-      idAcao: this.formBuilder.control(model?.idAcao || '', [
+      dataLancamento: this.formBuilder.control(model?.dataLancamento || null, [
         Validators.required,
       ]),
-      idFonteRecurso: this.formBuilder.control(model?.idFonteRecurso || '', [
+      idLancamentoPai: this.formBuilder.control(
+        model?.idLancamentoPai || null,
+        [Validators.required]
+      ),
+      idUnidade: this.formBuilder.control(model?.idUnidade || null, [
         Validators.required,
       ]),
-      idGrupoDespesa: this.formBuilder.control(model?.idGrupoDespesa || '', [
+      descricao: this.formBuilder.control(model?.descricao || null, [
+        Validators.required,
+      ]),
+      idUnidadeOrcamentaria: this.formBuilder.control(
+        model?.idUnidadeOrcamentaria || null,
+        [Validators.required]
+      ),
+      idPrograma: this.formBuilder.control(model?.idPrograma || null, [
+        Validators.required,
+      ]),
+      idAcao: this.formBuilder.control(model?.idAcao || null, [
+        Validators.required,
+      ]),
+      idFonteRecurso: this.formBuilder.control(model?.idFonteRecurso || null, [
+        Validators.required,
+      ]),
+      idGrupoDespesa: this.formBuilder.control(model?.idGrupoDespesa || null, [
         Validators.required,
       ]),
       idModalidadeAplicacao: this.formBuilder.control(
-        model?.idModalidadeAplicacao || '',
+        model?.idModalidadeAplicacao || null,
         [Validators.required]
       ),
       idElementoDespesa: this.formBuilder.control(
-        model?.idElementoDespesa || '',
+        model?.idElementoDespesa || null,
         [Validators.required]
       ),
-      idSolicitante: this.formBuilder.control(model?.idSolicitante || '', [
+      idSolicitante: this.formBuilder.control(model?.idSolicitante || null, [
         Validators.required,
       ]),
-      ged: this.formBuilder.control(model?.ged || '', [Validators.required]),
-      contratado: this.formBuilder.control(model?.contratado || '', [
+      ged: this.formBuilder.control(model?.ged || null, [Validators.required]),
+      contratado: this.formBuilder.control(model?.contratado || null, [
         Validators.required,
       ]),
       idObjetivoEstrategico: this.formBuilder.control(
-        model?.idObjetivoEstrategico || '',
+        model?.idObjetivoEstrategico || null,
         [Validators.required]
       ),
-      valor: this.formBuilder.control(model?.valor || '', [
+      valor: this.formBuilder.control(model?.valor || null, [
         Validators.required,
       ]),
-      idTipoTransacao: this.formBuilder.control(model?.idTipoTransacao || '', [
-        Validators.required,
-      ]),
-      anoOrcamento: this.formBuilder.control(model?.anoOrcamento || '', [
+      idTipoTransacao: this.formBuilder.control(
+        model?.idTipoTransacao || null,
+        [Validators.required]
+      ),
+      anoOrcamento: this.formBuilder.control(model?.anoOrcamento || null, [
         Validators.required,
       ]),
     });

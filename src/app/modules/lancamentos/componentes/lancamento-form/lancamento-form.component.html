@@ -1,1 +1,343 @@
-<p>lancamento-form works!</p>
+<section>
+  <div *ngIf="formGroup" [formGroup]="formGroup" class="lancamento-grid">
+    <div class="lancamento-field">
+      <label for="anoOrcamento">Ano Orçamento</label>
+      <p-inputNumber
+        inputId="anoOrcamento"
+        mode="decimal"
+        [min]="0"
+        [max]="100"
+        formControlName="anoOrcamento"
+        [ngClass]="
+          formGroup.controls['anoOrcamento'].hasError('required') &&
+          formGroup.controls['anoOrcamento'].touched
+            ? 'ng-invalid ng-dirty'
+            : ''
+        "
+      >
+      </p-inputNumber>
+
+      <small
+        *ngIf="
+          formGroup.controls['anoOrcamento'].hasError('required') &&
+          formGroup.controls['anoOrcamento'].touched
+        "
+        id="username2-help"
+        class="form-invalid"
+        >Campo obrigatório.</small
+      >
+    </div>
+
+    <div class="lancamento-field">
+      <label>Contratado</label>
+      <input
+        type="text"
+        formControlName="contratado"
+        maxlength="255"
+        pInputText
+        [ngClass]="
+          formGroup.controls['contratado'].hasError('required') &&
+          formGroup.controls['contratado'].touched
+            ? 'ng-invalid ng-dirty'
+            : ''
+        "
+      />
+
+      <small
+        *ngIf="
+          formGroup.controls['contratado'].hasError('required') &&
+          formGroup.controls['contratado'].touched
+        "
+        id="username2-help"
+        class="form-invalid"
+        >Campo obrigatório.</small
+      >
+    </div>
+
+    <div class="lancamento-field">
+      <label>Data Lançamento</label>
+      <p-calendar
+        [required]="true"
+        formControlName="dataLancamento"
+        [showIcon]="true"
+        [ngClass]="
+          formGroup.controls['dataLancamento'].hasError('required') &&
+          formGroup.controls['dataLancamento'].touched
+            ? 'ng-invalid ng-dirty'
+            : ''
+        "
+      ></p-calendar>
+
+      <small
+        *ngIf="
+          formGroup.controls['dataLancamento'].hasError('required') &&
+          formGroup.controls['dataLancamento'].touched
+        "
+        id="username2-help"
+        class="form-invalid"
+        >Campo obrigatório.</small
+      >
+    </div>
+
+    <div class="lancamento-field">
+      <label>Descrição</label>
+      <textarea
+        formControlName="descricao"
+        pInputTextarea
+        [ngClass]="
+          formGroup.controls['descricao'].hasError('required') &&
+          formGroup.controls['descricao'].touched
+            ? 'ng-invalid ng-dirty'
+            : ''
+        "
+      ></textarea>
+
+      <small
+        *ngIf="
+          formGroup.controls['descricao'].hasError('required') &&
+          formGroup.controls['descricao'].touched
+        "
+        id="username2-help"
+        class="form-invalid"
+        >Campo obrigatório.</small
+      >
+    </div>
+
+    <div class="lancamento-field">
+      <label for="ged">GED</label>
+      <input
+        id="ged"
+        type="text"
+        formControlName="ged"
+        maxlength="20"
+        pInputText
+        [ngClass]="
+          formGroup.controls['ged'].hasError('required') &&
+          formGroup.controls['ged'].touched
+            ? 'ng-invalid ng-dirty'
+            : ''
+        "
+      />
+
+      <small
+        *ngIf="
+          formGroup.controls['ged'].hasError('required') &&
+          formGroup.controls['ged'].touched
+        "
+        id="username2-help"
+        class="form-invalid"
+        >Campo obrigatório.</small
+      >
+    </div>
+
+    <div class="lancamento-field">
+      <label>Ação</label>
+      <p-dropdown
+        formControlName="idAcao"
+        [options]="selectionOptionsAcao"
+        optionLabel="nome"
+        optionValue="id"
+      ></p-dropdown>
+    </div>
+
+    <div class="lancamento-field">
+      <label>Elemento Despesa</label>
+      <p-dropdown
+        formControlName="idElementoDespesa"
+        [options]="selectionOptionsElementoDespesa"
+        optionLabel="nome"
+        optionValue="id"
+      ></p-dropdown>
+    </div>
+
+    <div class="lancamento-field">
+      <label>Fonte Recurso</label>
+      <p-dropdown
+        formControlName="idFonteRecurso"
+        [options]="selectionOptionsFonteRecurso"
+        optionLabel="nome"
+        optionValue="id"
+      ></p-dropdown>
+    </div>
+
+    <div class="lancamento-field">
+      <label>Grupo Despesa</label>
+      <p-dropdown
+        formControlName="idGrupoDespesa"
+        [options]="selectionOptionsGrupoDespesa"
+        optionLabel="nome"
+        optionValue="id"
+      ></p-dropdown>
+    </div>
+
+    <div class="lancamento-field">
+      <label>Lançamento Pai</label>
+      <p-dropdown
+        formControlName="idLancamentoPai"
+        [options]="selectionOptionsLancamentoPai"
+        optionLabel="contratado"
+        optionValue="id"
+      ></p-dropdown>
+    </div>
+
+    <div class="lancamento-field">
+      <label>Modalidade Aplicação</label>
+      <p-dropdown
+        formControlName="idModalidadeAplicacao"
+        [options]="selectionOptionsModalidadeAplicacao"
+        optionLabel="nome"
+        optionValue="id"
+      ></p-dropdown>
+    </div>
+
+    <div class="lancamento-field">
+      <label>Objetivo Estratégico</label>
+      <p-dropdown
+        formControlName="idObjetivoEstrategico"
+        [options]="selectionOptionsObjetivoEstrategico"
+        optionLabel="nome"
+        optionValue="id"
+      ></p-dropdown>
+    </div>
+
+    <div class="lancamento-field">
+      <label>Programa</label>
+      <p-dropdown
+        formControlName="idPrograma"
+        [options]="selectionOptionsPrograma"
+        optionLabel="nome"
+        optionValue="id"
+      ></p-dropdown>
+    </div>
+
+    <div class="lancamento-field">
+      <label>Solicitante</label>
+      <p-dropdown
+        formControlName="idSolicitante"
+        [options]="selectionOptionsSolicitante"
+        optionLabel="nome"
+        optionValue="id"
+      ></p-dropdown>
+    </div>
+
+    <div class="lancamento-field">
+      <label>Tipo Lançamento</label>
+      <p-dropdown
+        formControlName="idTipoLancamento"
+        [options]="selectionOptionsTipoLancamento"
+        optionLabel="nome"
+        optionValue="id"
+      ></p-dropdown>
+    </div>
+
+    <div class="lancamento-field">
+      <label>Tipo Transação</label>
+      <p-dropdown
+        formControlName="idTipoTransacao"
+        [options]="selectionOptionsTipoTransacao"
+        optionLabel="nome"
+        optionValue="id"
+      ></p-dropdown>
+    </div>
+
+    <div class="lancamento-field">
+      <label>Unidade</label>
+      <p-dropdown
+        formControlName="idUnidade"
+        [options]="selectionOptionsUnidade"
+        optionLabel="nome"
+        optionValue="id"
+      ></p-dropdown>
+    </div>
+
+    <div class="lancamento-field">
+      <label>Unidade Orçamentária</label>
+      <p-dropdown
+        formControlName="idUnidadeOrcamentaria"
+        [options]="selectionOptionsUnidadeOrcamentaria"
+        optionLabel="nome"
+        optionValue="id"
+      ></p-dropdown>
+    </div>
+
+    <div class="lancamento-field">
+      <label>Lançamento inválido</label>
+      <p-dropdown
+        formControlName="lancamentoInvalido"
+        [options]="selectionOptionsLancamentoInvalido"
+        optionLabel="label"
+        optionValue="value"
+      ></p-dropdown>
+    </div>
+
+    <div class="lancamento-field">
+      <label>Número Lançamento</label>
+      <input
+        formControlName="numeroLancamento"
+        type="text"
+        maxlength="20"
+        pInputText
+        [ngClass]="
+          formGroup.controls['numeroLancamento'].hasError('required') &&
+          formGroup.controls['numeroLancamento'].touched
+            ? 'ng-invalid ng-dirty'
+            : ''
+        "
+      />
+      <small
+        *ngIf="
+          formGroup.controls['numeroLancamento'].hasError('required') &&
+          formGroup.controls['numeroLancamento'].touched
+        "
+        id="username2-help"
+        class="form-invalid"
+        >Campo obrigatório.</small
+      >
+    </div>
+
+    <div class="lancamento-field">
+      <label>Valor</label>
+      <p-inputNumber
+        formControlName="valor"
+        mode="currency"
+        currency="BRL"
+        locale="pt-BR"
+        [ngClass]="
+          formGroup.controls['valor'].hasError('required') &&
+          formGroup.controls['valor'].touched
+            ? 'ng-invalid ng-dirty'
+            : ''
+        "
+      ></p-inputNumber>
+
+      <small
+        *ngIf="
+          formGroup.controls['valor'].hasError('required') &&
+          formGroup.controls['valor'].touched
+        "
+        id="username2-help"
+        class="form-invalid"
+        >Campo obrigatório.</small
+      >
+    </div>
+  </div>
+
+  <div class="lancamento-actions">
+    <button
+      pButton
+      type="button"
+      icon="pi pi-save"
+      label="Salvar"
+      class="p-button-success p-mr-2"
+      (click)="onSubmit()"
+    ></button>
+    <button
+      pButton
+      type="button"
+      icon="pi pi-times"
+      label="Cancelar"
+      class="p-button-danger"
+      (click)="handleBack()"
+    ></button>
+  </div>
+</section>

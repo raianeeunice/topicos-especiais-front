@@ -1,79 +1,75 @@
-import { Injectable } from "@angular/core";
-import { environment } from "src/environments/environment";
+import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
+
+export interface ITabelaSecundaria {
+  codigo: number;
+  dataAlteracao: string;
+  dataCadastro: string;
+  id: number;
+  nome: string;
+}
 
 @Injectable()
 export class SelectOptionsUtilsService {
-//   private readonly baseUrl = `${environment.tmsServerUrl}/utils`
+  private readonly baseUrl = `${environment.baseURL}`;
 
   constructor(private httpClient: HttpClient) {}
 
-//   auditoria(tabela: string, idRegistro: number) {
-//     const url = `${this.baseUrl}/auditoria?tabela=${tabela}&idRegistro=${idRegistro}`;
+  private listarTabela(tabela: string) {
+    const url = `${this.baseUrl}/${tabela}`;
+    return this.httpClient.get<ITabelaSecundaria[]>(url);
+  }
 
-//     return this.httpClient.get<Auditoria>(url);
-//   }
+  listarLancamentoPai() {
+    return this.listarTabela('lancamento');
+  }
 
-//   buscaCEP(cep: string): Observable<any> {
-//     const url = `${this.baseUrl}/cep/`;
+  listarAcao() {
+    return this.listarTabela('acao');
+  }
 
-//     return this.httpClient.post<any>(url, { cep: cep });
-//   }
+  listarElementoDespesa() {
+    return this.listarTabela('elementoDespesa');
+  }
 
-//   buscaCNPJ(cnpj: string): Observable<any> {
-//     const url = `${this.baseUrl}/cnpj?Cnpj=${cnpj}`;
+  listarFonteRecurso() {
+    return this.listarTabela('fonteRecursos');
+  }
 
-//     return this.httpClient.get<BuscarCNPJRetorno>(url);
-//   }
+  listarGrupoDespesa() {
+    return this.listarTabela('grupoDespesas');
+  }
 
-//   calcularImposto(model: RequestImposto): Observable<any> {
-//     const url = `${this.baseUrl}/imposto`;
+  listarModalidadeAplicacao() {
+    return this.listarTabela('modalidadeAplicacoes');
+  }
 
-//     return this.httpClient.post<ResponseImposto>(url, model);
-//   }
+  listarObjetivoEstrategico() {
+    return this.listarTabela('objetivoEstrategico');
+  }
 
-//   listarCondicaoIcms(): Observable<any> {
-//     const url = `${this.baseUrl}/listar/condicaoIcms`;
+  listarPrograma() {
+    return this.listarTabela('programa');
+  }
 
-//     return this.httpClient.get<BuscarCondicaoIcmsRetorno[]>(url);
-//   }
+  listarSolicitante() {
+    return this.listarTabela('solicitante');
+  }
 
-//   listarEnderecosCpfCnpj(cpfCnpj: string): Observable<PessoaEndereco> {
-//     const url = `${this.baseUrl}/endercocpfcnpj?cpfcnpj=${cpfCnpj}`;
+  listarTipoLancamento() {
+    return this.listarTabela('tipoLancamento');
+  }
 
-//     return this.httpClient.get<PessoaEndereco>(url);
-//   }
+  listarTipoTransacao() {
+    return this.listarTabela('tipoTransacoes');
+  }
 
-//   listarLocalidades(idUF: number): Observable<any> {
-//     const url = `${environment.tmsServerUrl}/localidades/listar/${idUF}`;
+  listarUnidade() {
+    return this.listarTabela('unidade');
+  }
 
-//     return this.httpClient.get<BuscarLocalidadeRetorno[]>(url);
-//   }
-
-//   listarPaises(): Observable<any> {
-//     const url = `${this.baseUrl}/listar/paises`;
-
-//     return this.httpClient.get<BuscarPaisRetorno[]>(url);
-//   }
-
-//   listarTipoEmbalagem(
-//     idEstabelecimento: number,
-//     mostrarInativos: boolean = false
-//   ): Observable<any> {
-//     const url = `${environment.tmsServerUrl}/tipoembalagem/listar?IdEstabelecimento=${idEstabelecimento}&MostraInativos=${mostrarInativos}`;
-
-//     return this.httpClient.get<TipoEmbalagem[]>(url);
-//   }
-
-//   listarUFs(idPais: number = environment.IdPaisBrasil): Observable<any> {
-//     const url = `${this.baseUrl}/listar/ufs/${idPais}`;
-
-//     return this.httpClient.get<BuscarUFRetorno[]>(url);
-//   }
-
-//   upload(model: Upload): Observable<any> {
-//     const url = `${this.baseUrl}/upload/documentos`;
-
-//     return this.httpClient.post<any>(url, model);
-//   }
+  listarUnidadeOrcamentaria() {
+    return this.listarTabela('unidadeOrcamentaria');
+  }
 }

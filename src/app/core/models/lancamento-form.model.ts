@@ -1,25 +1,25 @@
 export interface ILancamentoForm {
-  lancamentoInvalido: string;
-  numeroLancamento: string;
-  idTipoLancamento: string;
+  anoOrcamento: string;
+  contratado: string;
   dataLancamento: string;
-  idLancamentoPai: string;
-  idUnidade: string;
   descricao: string;
-  idUnidadeOrcamentaria: string;
-  idPrograma: string;
+  ged: string;
   idAcao: string;
+  idElementoDespesa: string;
   idFonteRecurso: string;
   idGrupoDespesa: string;
+  idLancamentoPai: string;
   idModalidadeAplicacao: string;
-  idElementoDespesa: string;
-  idSolicitante: string;
-  ged: string;
-  contratado: string;
   idObjetivoEstrategico: string;
-  valor: string;
+  idPrograma: string;
+  idSolicitante: string;
+  idTipoLancamento: string;
   idTipoTransacao: string;
-  anoOrcamento: string;
+  idUnidade: string;
+  idUnidadeOrcamentaria: string;
+  lancamentoInvalido: string;
+  numeroLancamento: string;
+  valor: string;
 }
 
 export interface ILancamentoDTO {

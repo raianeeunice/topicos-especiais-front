@@ -11,6 +11,6 @@ export class HomeComponent {
   constructor(private router: Router) {}
 
   onSubmit() {
-    this.router.navigateByUrl(`/accounting-entry`);
+    this.router.navigateByUrl(`/lancamento`);
   }
 }

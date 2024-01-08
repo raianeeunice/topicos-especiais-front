@@ -9,7 +9,7 @@ const routes: Routes = [
     component: HomeComponent,
   },
   {
-    path: 'accounting-entry',
+    path: 'lancamento',
     loadChildren: () =>
       import('./modules/lancamentos/lancamentos.module').then(
         (p) => p.LancamentosModule
