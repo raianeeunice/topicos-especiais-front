@@ -15,6 +15,13 @@ const routes: Routes = [
         (p) => p.LancamentosModule
       ),
   },
+  {
+    path: 'secundario',
+    loadChildren: () =>
+      import('./modules/secundarios/secundarios.module').then(
+        (p) => p.SecundariosModule
+      ),
+  },
   { path: '404', component: NotFoundComponent },
   { path: '**', redirectTo: '404' },
 ];

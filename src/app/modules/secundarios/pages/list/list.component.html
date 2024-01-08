@@ -1,0 +1,79 @@
+<p-toast></p-toast>
+
+<section>
+  <div class="card">
+    <div *ngIf="formGroup" [formGroup]="formGroup" class="secundario-grid">
+      <div class="secundario-field">
+        <label>Tabela Secundaria</label>
+        <p-dropdown
+          formControlName="tabela"
+          [options]="selectionOptionsSecundario"
+          optionLabel="label"
+          optionValue="value"
+        ></p-dropdown>
+      </div>
+      <button
+        pButton
+        type="button"
+        label="Listar Itens"
+        class="p-button-success p-mr-2"
+        (click)="getAllItens()"
+      ></button>
+    </div>
+  </div>
+
+  <!-- Mostra todos os itens após pegá-los -->
+  <div class="card" *ngIf="items && items.length > 0">
+    <div class="header">
+      <h5 class="title">Tabela de Itens</h5>
+
+      <button
+        pButton
+        type="button"
+        icon="pi pi-plus"
+        label="Novo"
+        class="p-button-success p-mr-2"
+        (click)="goToCreate()"
+      ></button>
+    </div>
+
+    <p-table
+      [value]="items"
+      styleClass="p-datatable-gridlines"
+      [tableStyle]="{ 'min-width': '60rem' }"
+    >
+      <ng-template pTemplate="header">
+        <tr>
+          <th pSortableColumn="nome" style="width: 20%">
+            Nome <p-sortIcon field="nome"></p-sortIcon>
+          </th>
+          <th pSortableColumn="codigo" style="width: 20%" *ngIf="temCodigo">
+            Codigo <p-sortIcon field="codigo"></p-sortIcon>
+          </th>
+          <th style="min-width: 10rem"></th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-item>
+        <tr>
+          <td>{{ item.nome }}</td>
+          <td *ngIf="temCodigo">{{ item.codigo }}</td>
+          <td>
+            <button
+              pButton
+              icon="pi pi-pencil"
+              class="p-button-rounded p-button-text p-mr-2"
+              (click)="goToEdit(item.id)"
+            ></button>
+            <button
+              pButton
+              pRipple
+              icon="pi pi-trash"
+              class="p-button-rounded p-button-text p-button-danger"
+              (click)="handleDelete(item.id)"
+            ></button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</section>

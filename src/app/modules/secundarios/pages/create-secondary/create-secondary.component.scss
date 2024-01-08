@@ -1,0 +1,19 @@
+:host {
+  .secundario-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-gap: 16px;
+
+    .secundario-field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      width: 100%;
+    }
+
+    .form-invalid {
+      font-size: small;
+      color: red;
+    }
+  }
+}
