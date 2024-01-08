@@ -1,30 +1,33 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { LancamentoService } from 'src/app/core/services/http/lancamento.service';
 import { LancamentoFormComponent } from './componentes/lancamento-form/lancamento-form.component';
-import { LancamentoListComponent } from './componentes/lancamento-list/lancamento-list.component';
+import { LancamentoTableComponent } from './componentes/table/table.component';
+import { LancamentoRoutingModule } from './lancamentos-routing.module';
 import { CreateComponent } from './pages/create/create.component';
 import { EditComponent } from './pages/edit/edit.component';
 import { ListComponent } from './pages/list/list.component';
-import { LancamentoRoutingModule } from './lancamentos-routing.module';
-import { LancamentoService } from 'src/app/core/services/http/lancamento.service';
 
-import { TableModule } from 'primeng/table';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ConfirmationService, MessageService } from 'primeng/api';
 import { ButtonModule } from 'primeng/button';
-import { ToastModule } from 'primeng/toast';
-import { MessagesModule } from 'primeng/messages';
-import { MessageModule } from 'primeng/message';
+import { CalendarModule } from 'primeng/calendar';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { DropdownModule } from 'primeng/dropdown';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { InputTextModule } from 'primeng/inputtext';
-import { CalendarModule } from 'primeng/calendar';
 import { InputTextareaModule } from 'primeng/inputtextarea';
-import { DropdownModule } from 'primeng/dropdown';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MessageModule } from 'primeng/message';
+import { MessagesModule } from 'primeng/messages';
+import { TableModule } from 'primeng/table';
+import { ToastModule } from 'primeng/toast';
+import { CardsModule } from 'src/shared/components/cards/cards.module';
+import { LancamentoFormBuilder } from './componentes/lancamento-form/lancamento.form-builder';
 
 @NgModule({
   declarations: [
     LancamentoFormComponent,
-    LancamentoListComponent,
+    LancamentoTableComponent,
     CreateComponent,
     EditComponent,
     ListComponent,
@@ -45,7 +48,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     InputTextareaModule,
     DropdownModule,
     FormsModule,
+    CardsModule
   ],
-  providers: [LancamentoService],
+  providers: [
+    LancamentoService,
+    ConfirmationService,
+    LancamentoFormBuilder,
+    MessageService,
+  ],
 })
 export class LancamentosModule {}

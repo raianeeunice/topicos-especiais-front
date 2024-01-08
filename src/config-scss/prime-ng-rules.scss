@@ -2,3 +2,21 @@
   width: 100%;
 }
 
+span > .p-inputtext:enabled:focus, .p-dropdown:not(.p-disable).p-focus{
+  border-color: #6153be !important;
+  box-shadow: 0 0 0 0.02rem #6153be !important;
+}
+
+span > .p-inputtext:enabled:hover, .p-dropdown:not(.p-disable):hover{
+  border-color: #6153be !important;
+  box-shadow: 0 0 0 0.02rem #6153be !important;
+}
+
+.input-roxo:enabled:focus {
+  border-color: #6153be !important;
+  box-shadow: 0 0 0 0.02rem #6153be !important;
+}
+
+.p-overlay {
+ max-width: 100%;
+}

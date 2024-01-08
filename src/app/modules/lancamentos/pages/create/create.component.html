@@ -1,3 +1,8 @@
-<p>create works!</p>
+<p-toast></p-toast>
 
-<app-lancamento-form></app-lancamento-form>
+<h2 class="title">Cadastrar lançamento</h2>
+
+<app-lancamento-form
+  [form]="formGroup"
+  (emitSubmit)="handleSubmit($event)"
+></app-lancamento-form>

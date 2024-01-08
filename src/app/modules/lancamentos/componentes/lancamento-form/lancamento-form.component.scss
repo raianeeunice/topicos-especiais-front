@@ -1,19 +1,48 @@
 :host {
-  .lancamento-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    grid-gap: 16px;
+  input:enabled:focus {
+    border-color: #6153be !important;
+    box-shadow: 0 0 0 0.02rem #6153be !important;
+  }
 
-    .lancamento-field {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      width: 100%;
+  input:enabled:hover {
+    border-color: #6153be !important;
+    box-shadow: 0 0 0 0.02rem #6153be !important;
+  }
+
+  .form-container {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 10px;
+    margin: 1rem;
+
+    .lancamento-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 16px;
+
+      .lancamento-field {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        width: 100%;
+
+        label {
+          font-weight: 500;
+          color: #495057;
+        }
+      }
+
+      .form-invalid {
+        font-size: small;
+        color: red;
+      }
     }
 
-    .form-invalid{
-      font-size: small;
-      color: red;
+    .lancamento-actions {
+      display: flex;
+      gap: 16px;
+      justify-content: flex-end;
+      margin-top: 32px;
     }
   }
 }

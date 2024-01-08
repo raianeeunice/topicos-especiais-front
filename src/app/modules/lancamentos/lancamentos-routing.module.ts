@@ -1,13 +1,13 @@
 import { NgModule, createComponent } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LancamentoListComponent } from './componentes/lancamento-list/lancamento-list.component';
 import { CreateComponent } from './pages/create/create.component';
 import { EditComponent } from './pages/edit/edit.component';
+import { ListComponent } from './pages/list/list.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: LancamentoListComponent,
+    component: ListComponent,
   },
   {
     path: 'cadastro',

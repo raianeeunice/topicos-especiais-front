@@ -1,15 +1,16 @@
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Injectable } from '@angular/core';
-import { ILancamentoForm } from 'src/app/core/models/lancamento-form.model';
+import { ILancamento } from 'src/app/core/models/lancamento-form.model';
+import { formatDate } from 'src/app/core/utils/functions.utils';
 
 @Injectable()
 export class LancamentoFormBuilder {
   constructor(private formBuilder: FormBuilder) {}
 
-  build(model?: ILancamentoForm): FormGroup {
+  build(model?: Partial<ILancamento>): FormGroup {
     return this.formBuilder.group({
       lancamentoInvalido: this.formBuilder.control(
-        model?.lancamentoInvalido || null,
+        model?.lancamentoInvalido === 0 ? false : true || null,
         [Validators.required]
       ),
       numeroLancamento: this.formBuilder.control(
@@ -20,9 +21,13 @@ export class LancamentoFormBuilder {
         model?.idTipoLancamento || null,
         [Validators.required]
       ),
-      dataLancamento: this.formBuilder.control(model?.dataLancamento || null, [
-        Validators.required,
-      ]),
+      dataLancamento: [
+        {
+          value: model?.dataLancamento || new Date(),
+          disabled: !!model?.dataLancamento,
+        },
+        [Validators.required],
+      ],
       idLancamentoPai: this.formBuilder.control(
         model?.idLancamentoPai || null,
         [Validators.required]
@@ -79,5 +84,22 @@ export class LancamentoFormBuilder {
         Validators.required,
       ]),
     });
+  }
+
+  parseFormToModel(form: FormGroup, edit: boolean): ILancamento {
+    const { lancamentoInvalido, dataLancamento } = form.getRawValue();
+    let date: string = '';
+
+    if (edit) {
+      date = formatDate(dataLancamento);
+    } else {
+      date = dataLancamento;
+    }
+
+    return {
+      ...form.getRawValue(),
+      lancamentoInvalido: !lancamentoInvalido ? 0 : 1,
+      dataLancamento: date,
+    };
   }
 }

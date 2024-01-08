@@ -1,1 +1,8 @@
-<p>edit works!</p>
+<p-toast></p-toast>
+
+<h2 class="title">Editar lançamento: {{ numeroLancamento }}</h2>
+
+<app-lancamento-form
+  [form]="formGroup"
+  (emitSubmit)="handleSubmit($event)"
+></app-lancamento-form>

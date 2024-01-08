@@ -2,20 +2,16 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ConfirmationService, MessageService } from 'primeng/api';
-import { Observable } from 'rxjs';
-import { ILancamentoDTO } from 'src/app/core/models/lancamento-form.model';
+import { ILancamento } from 'src/app/core/models/lancamento-form.model';
 import { LancamentoService } from 'src/app/core/services/http/lancamento.service';
 
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss'],
-  providers: [MessageService, ConfirmationService],
 })
 export class ListComponent implements OnInit {
-  public lancamentos: ILancamentoDTO[] = [];
-  public first = 0;
-  public rows = 10;
+  public lancamentos: ILancamento[] = [];
 
   constructor(
     private lancamentoService: LancamentoService,
@@ -30,12 +26,9 @@ export class ListComponent implements OnInit {
       .subscribe((res) => (this.lancamentos = res));
   }
 
-  deleteProduct(lancamento: ILancamentoDTO) {
-    console.log(lancamento);
-    // debugger;
+  handleDeleteLancamento(lancamento: ILancamento) {
     this.confirmationService.confirm({
-      message:
-        `Você tem certeza que deseja deletar o lançamento:
+      message: `Você tem certeza que deseja deletar o lançamento:
         "${lancamento.contratado}"?`,
       header: 'Confirmar exclusão',
       icon: 'pi pi-exclamation-triangle',
@@ -53,8 +46,8 @@ export class ListComponent implements OnInit {
     });
   }
 
-  editProduct(lancamento: ILancamentoDTO) {
-    this.router.navigate(['/lancamento/cadastro', lancamento.id]);
+  handleEditLancamento(id: number) {
+    this.router.navigate(['/lancamento/cadastro', id]);
   }
 
   handleSuccess() {
@@ -76,9 +69,5 @@ export class ListComponent implements OnInit {
       detail: error.message,
       life: 3000,
     });
-  }
-
-  addLancamento() {
-    this.router.navigate(['/lancamento/cadastro']);
   }
 }
